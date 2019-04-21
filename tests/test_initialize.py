@@ -73,12 +73,6 @@ class RunTest(base.TestCase):
 
     @base.mock.patch('src.initialize.web_app')
     @base.mock.patch('src.initialize.create_api')
-    def test_should_call_create_api(self, create_api_mock, web_app_mock):
-        base.initialize.run()
-        self.assertTrue(create_api_mock.called)
-
-    @base.mock.patch('src.initialize.web_app')
-    @base.mock.patch('src.initialize.create_api')
     def test_should_call_web_app_to_run(self, create_api_mock, web_app_mock):
         base.initialize.run()
         web_app_mock.run.assert_called_with(host='127.0.0.1', port=int(config.PORT), debug=True, threaded=True)
