@@ -16,3 +16,4 @@ gevent==1.4.0
 celery[redis]
 celery==4.1.1
 kombu==4.2.0
+fabric==2.4.0
