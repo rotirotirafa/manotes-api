@@ -209,8 +209,11 @@ class NoteResource(ResourceBase):
 
         @login_required
         def post(self):
-            note = self.me.create_a_note(self.payload)
-            return self.response(note.as_dict())
+            try:
+                note = self.me.create_a_note(self.payload)
+                return self.response(note.as_dict())
+            except Exception as ex:
+                return self.return_unexpected_error()
 
         @login_required
         def put(self, note_id):
